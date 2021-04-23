@@ -1,0 +1,17 @@
+version: '3'
+
+volumes:
+  postgresdata:
+
+services:
+  db:
+    image: postgres:11
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=bi
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgresdata:/var/lib/postgresql/data

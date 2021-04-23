@@ -1,0 +1,34 @@
+FROM mcr.microsoft.com/dotnet/sdk:5.0 AS build
+WORKDIR /app
+
+# copy dependant csproj and restore as distinct layer
+COPY *.sln .
+COPY src/SFCCTools.Console/SFCCTools.Jobs/*.csproj ./src/SFCCTools.Console/SFCCTools.Jobs/
+COPY src/SFCCTools.Core/*.csproj ./src/SFCCTools.Core/
+COPY src/SFCCTools.Data/*.csproj ./src/SFCCTools.Data/
+COPY src/SFCCTools.AccountManager/*.csproj ./src/SFCCTools.AccountManager/
+COPY src/SFCCTools.WebDAV/*.csproj ./src/SFCCTools.WebDAV/
+COPY src/SFCCTools.OCAPI/*.csproj ./src/SFCCTools.OCAPI/
+WORKDIR /app/src/SFCCTools.Console/SFCCTools.Jobs
+RUN dotnet restore
+
+# copy and publish app and dependant libraries (ok to have extra files here
+# as we will only use out/ directory in final image
+WORKDIR /app/
+COPY src/. ./src/
+RUN dotnet publish src/SFCCTools.Console/SFCCTools.Jobs -c Release -o out
+
+# test application -- see: dotnet-docker-unit-testing.md
+FROM build AS testrunner
+WORKDIR /app
+COPY tests/ tests/
+WORKDIR /app/tests/SFCCTools.FunctionalTests/
+RUN dotnet restore
+WORKDIR /app
+ENTRYPOINT ["dotnet", "test", "-r", "TestResults", "--logger:trx", "--filter", "Category != RequiresDatabase & Category != RequiresInstance"]
+
+
+FROM mcr.microsoft.com/dotnet/runtime:5.0 AS runtime
+WORKDIR /app
+COPY --from=build /app/out ./
+ENTRYPOINT ["dotnet", "SFCCTools.Jobs.dll"]

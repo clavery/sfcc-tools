@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="testdata\**\*.*">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FlexLabs.EntityFrameworkCore.Upsert" Version="3.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="3.1.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0-preview-20191216-02" />
+    <PackageReference Include="Moq" Version="4.13.1" />
+    <PackageReference Include="xunit" Version="2.4.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1" />
+    <PackageReference Include="coverlet.collector" Version="1.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\SFCCTools.Console\SFCCTools.Jobs\SFCCTools.Jobs.csproj" />
+    <ProjectReference Include="..\..\src\SFCCTools.OCAPI\SFCCTools.OCAPI.csproj" />
+    <ProjectReference Include="..\..\src\SFCCTools.AccountManager\SFCCTools.AccountManager.csproj" />
+    <ProjectReference Include="..\..\src\SFCCTools.Console\SFCCTools.CLI\SFCCTools.CLI.csproj" />
+    <ProjectReference Include="..\..\src\SFCCTools.Data\SFCCTools.Data.csproj" />
+    <ProjectReference Include="..\..\src\SFCCTools.OCAPI\SFCCTools.OCAPI.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="TestResults\**" />
+    <Compile Remove="OrderImport\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Remove="TestResults\**" />
+    <EmbeddedResource Remove="OrderImport\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="TestResults\**" />
+    <None Remove="OrderImport\**" />
+  </ItemGroup>
+
+</Project>

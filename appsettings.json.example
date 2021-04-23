@@ -1,0 +1,20 @@
+{
+  "ConnectionStrings": {
+    "Default": "Host=localhost;Database=bi;Username=postgres;Password=password"
+  },
+  "SFCC" : {
+    "ClientID": "....",
+    "ClientSecret": "....",
+    "Server": "test-na01-example.demandware.net",
+    "SiteID": "RefApp"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Debug",
+      "Microsoft": "Warning"
+    }
+  },
+  "OrderProcessing": {
+    "InitialReferenceDate": "2021-01-01T00:00:01+0000"
+  }
+}
