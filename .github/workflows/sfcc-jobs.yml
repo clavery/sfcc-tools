@@ -29,6 +29,6 @@ jobs:
           context: .
           file: Dockerfile.SFCCTools.Jobs
           push: true
-          tags: clavery/sfcc-tools-jobs:latest
+          tags: ghcr.io/clavery/sfcc-tools-jobs:latest
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
