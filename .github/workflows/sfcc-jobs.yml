@@ -3,7 +3,7 @@ name: sfcc-tools image
 on:
   push:
     branches:
-      - 'master'
+      - 'main'
 
 jobs:
   docker:
