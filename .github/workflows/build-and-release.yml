@@ -29,15 +29,15 @@ jobs:
             src/SFCCTools.Console/SFCCTools.CLI/SFCCTools.CLI.csproj
       - name: Zip CLI MacOS
         run: zip -j SFCCTools.osx.11.0-x64 out/osx/sfcc
-      - name: Package CLI MacOS osx.11.0-arm64
-        run: |
-          dotnet publish -r osx.11.0-arm64 --self-contained true \
-            -p:PublishSingleFile=true \
-            -p:IncludeAllContentForSelfExtract=true \
-            -c Release -o out/osx-arm64 \
-            src/SFCCTools.Console/SFCCTools.CLI/SFCCTools.CLI.csproj
-      - name: Zip CLI MacOS arm64
-        run: zip -j SFCCTools.osx.11.0-arm64 out/osx-arm64/sfcc
+#      - name: Package CLI MacOS osx.11.0-arm64
+#        run: |
+#          dotnet publish -r osx.11.0-arm64 --self-contained true \
+#            -p:PublishSingleFile=true \
+#            -p:IncludeAllContentForSelfExtract=true \
+#            -c Release -o out/osx-arm64 \
+#            src/SFCCTools.Console/SFCCTools.CLI/SFCCTools.CLI.csproj
+#      - name: Zip CLI MacOS arm64
+#        run: zip -j SFCCTools.osx.11.0-arm64 out/osx-arm64/sfcc
       - name: Package CLI Win win-x64
         run: |
           dotnet publish -r win-x64 --self-contained true \
