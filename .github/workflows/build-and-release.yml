@@ -60,6 +60,7 @@ jobs:
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/v')
         with:
+          fail_on_unmatched_files: true
           files: |
             SFCCTools.linux-x64.zip
             SFCCTools.win-x64.zip
