@@ -1,4 +1,4 @@
-name: sfcc-tools image
+name: sfcc-tools-jobs image
 
 on:
   push:
