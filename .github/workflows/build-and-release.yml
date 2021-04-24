@@ -59,5 +59,10 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/v')
+        with:
+          files: |
+            SFCCTools.linux-x64.zip
+            SFCCTools.win-x64.zip
+            SFCCTools.osx.11.0-x64.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
