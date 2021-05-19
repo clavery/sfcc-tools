@@ -2,7 +2,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\SFCCTools.AccountManager\SFCCTools.AccountManager.csproj" />
-    <ProjectReference Include="..\..\SFCCTools.Data\SFCCTools.Data.csproj" />
     <ProjectReference Include="..\..\SFCCTools.OCAPI\SFCCTools.OCAPI.csproj" />
     <ProjectReference Include="..\..\SFCCTools.WebDAV\SFCCTools.WebDAV.csproj" />
     <ProjectReference Include="..\..\SFCCTools.Core\SFCCTools.Core.csproj" />

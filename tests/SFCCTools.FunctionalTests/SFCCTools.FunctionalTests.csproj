@@ -27,7 +27,6 @@
     <ProjectReference Include="..\..\src\SFCCTools.OCAPI\SFCCTools.OCAPI.csproj" />
     <ProjectReference Include="..\..\src\SFCCTools.AccountManager\SFCCTools.AccountManager.csproj" />
     <ProjectReference Include="..\..\src\SFCCTools.Console\SFCCTools.CLI\SFCCTools.CLI.csproj" />
-    <ProjectReference Include="..\..\src\SFCCTools.Data\SFCCTools.Data.csproj" />
     <ProjectReference Include="..\..\src\SFCCTools.OCAPI\SFCCTools.OCAPI.csproj" />
   </ItemGroup>
 
